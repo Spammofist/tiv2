@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tiv2</title>
+  <title>Tiv</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag :atom, "/feed" %>
+  <%= auto_discovery_link_tag :rss, "/feed.rss" %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <%= render 'layouts/shim' %>
+  <%= favicon_link_tag %>
 </head>
 <body>
+<%= render 'layouts/header' %>
+<div class="container">
+  <ul class="nav nav-pills">
+    <li class="logo"><%= link_to image_tag('tiv4.png'), root_path %></li>
+<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Termine <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+    <li class="tab"><%= link_to "Dinge", root_path %></li>
+    <li><%= link_to "Bla", root_path %></li>
+	</ul>
+	</li>
+    <li class="tab"><%= link_to "Bilder", root_path %></li>
+    <li class="tab"><%= link_to "Veranstaltungen", root_path %></li>
+    <li class="tab"><%= link_to "Historie", root_path %></li>
+    <li class="tab"><%= link_to "Über Uns", root_path %></li>
+    <li class="tab"><%= link_to "Angebot", root_path %></li>
+    <li class="tab"><%= link_to "Links", root_path %></li>
+    <li class="tab"><%= link_to "Kontakt", root_path %></li>
+    <li class="tab"><%= link_to "Login", root_path %></li>
+  </ul>
+  <div class="pageb">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
 
-<%= yield %>
-
+</div>
 </body>
 </html>
