@@ -18,12 +18,12 @@
 <div class="container">
   <ul class="nav nav-pills">
     <li class="logo"><%= link_to image_tag('tiv4.png'), root_path %></li>
-<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Termine <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-    <li class="tab"><%= link_to "Dinge", root_path %></li>
-    <li><%= link_to "Bla", root_path %></li>
-	</ul>
-	</li>
+    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Termine <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li class="tab"><%= link_to "Dinge", root_path %></li>
+        <li><%= link_to "Bla", root_path %></li>
+	    </ul>
+	  </li>
     <li class="tab"><%= link_to "Bilder", root_path %></li>
     <li class="tab"><%= link_to "Veranstaltungen", root_path %></li>
     <li class="tab"><%= link_to "Historie", root_path %></li>
@@ -33,10 +33,14 @@
     <li class="tab"><%= link_to "Kontakt", root_path %></li>
     <li class="tab"><%= link_to "Login", root_path %></li>
   </ul>
-  <div class="pageb">
-    <%= yield %>
-    <%= render 'layouts/footer' %>
-  </div>
+    <div class="pageb">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+  <%= debug(params) if Rails.env.development? %>
 
 </div>
 </body>
