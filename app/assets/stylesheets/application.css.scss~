@@ -20,9 +20,14 @@
   max-height: 20px;
 }
 
-body{
-  background-image: asset-url('background.png');
-  background-size: cover;
+@media (min-width: 480px){
+  body{
+   background-image: asset-data-url('background.png');
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+  }
 }
 
 .tabs{
@@ -51,7 +56,7 @@ body{
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid #eee;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -74,4 +79,30 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 80%;
+  margin-bottom: 15px;
+ // @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 12px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
 }

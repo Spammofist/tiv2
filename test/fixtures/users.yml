@@ -1,0 +1,4 @@
+rene:
+  name: René Fritzsch
+  email: rene.fritzsch.1el@fh-zwickau.de
+  password_digest: <%= User.digest('password') %>
