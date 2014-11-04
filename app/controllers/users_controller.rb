@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Willkommen im Tivoli"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Bitte schau in deinen Emails nach, um deinen Account zu aktivieren."
+      redirect_to root_url
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(params[:id])
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user

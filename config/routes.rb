@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  get 'account_activations/edit'
 
   root 'main#home'
 
@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   match '/login',            to: 'sessions#new',          via: 'get'
   match '/login',            to: 'sessions#create',       via: 'post'
   match '/logout',           to: 'sessions#destroy',      via: 'delete'
+
+  resources :users
+  resources :account_activations, only: [:edit]
 
  end

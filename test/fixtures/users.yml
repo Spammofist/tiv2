@@ -1,4 +1,22 @@
 rene:
-  name: René Fritzsch
+  name: René (SN) Fritzsch
   email: rene.fritzsch.1el@fh-zwickau.de
   password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+tiv:
+  name: Tivoli
+  email: tivoli@fh-zwickau.de
+  password_digest: <%= User.digest('password') %>
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+test:
+  name: Test User
+  email: r_fritzsch@gmx.de
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>

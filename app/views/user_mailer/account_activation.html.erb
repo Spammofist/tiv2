@@ -1,0 +1,10 @@
+<h1>Studentenclub Tivoli e.V.</h1>
+
+<p>Hi <%= @user.name %></p>
+
+<p>
+Willkommen im Tivoli! Klicke auf den Link um deinen Account zu aktivieren:
+</p>
+
+<%= link_to "Aktivieren", edit_account_activation_url(@user.activation_token,
+                                                      email: @user.email) %>
