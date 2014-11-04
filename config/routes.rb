@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'account_activations/edit'
-
   root 'main#home'
 
   match '/signup',           to: 'users#new',             via: 'get'
@@ -12,6 +10,6 @@ Rails.application.routes.draw do
   match '/logout',           to: 'sessions#destroy',      via: 'delete'
 
   resources :users
-  resources :account_activations, only: [:edit]
-
+  resources :account_activations,   only: [:edit]
+  resources :password_resets,       only: [:new, :create, :edit, :update]
  end
